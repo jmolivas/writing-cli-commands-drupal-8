@@ -1,0 +1,13 @@
+protected function execute(...) {
+  $io = new DrupalStyle($input, $output);
+  $nid = $input->getOption('nid');
+  $node = $this->entityTypeManager
+    ->getStorage('node')
+    ->load($nid);
+  if (!$node ) {
+    $io->error('Invalid node: ' . $nid);
+    return 1;
+  }
+  $io->info('Node: ' . $node->label());
+  return 0;
+}

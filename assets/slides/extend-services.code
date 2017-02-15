@@ -1,0 +1,5 @@
+
+services:
+  ...
+  tags:
+    - { name: drupal.command, bootstrap: uninstall }

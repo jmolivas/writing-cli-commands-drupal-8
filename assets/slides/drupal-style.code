@@ -1,0 +1,23 @@
+
+use Drupal\Console\Style\DrupalStyle;
+
+$io = new DrupalStyle($input, $output);
+
+$io->title();
+$io->section();
+$io->info();
+$io->table();
+
+$io->success();
+$io->error();
+$io->warning();
+
+$io->ask();
+$io->askHidden();
+$io->confirm();
+$io->choice();
+
+$io->comment();
+$io->commentBlock();
+$io->choiceNoList();
+$io->askEmpty();

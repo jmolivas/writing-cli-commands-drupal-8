@@ -1,0 +1,9 @@
+protected function interact(...) {
+  $io = new DrupalStyle($input, $output);
+  $nid = $input->getOption('nid');
+
+  if (!$nid) {
+    $nid = $io->ask('Enter node id');
+    $input->setOption('nid', $nid);
+  }
+}

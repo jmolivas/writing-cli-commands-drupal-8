@@ -1,0 +1,6 @@
+services:
+  sandcamp.sandcamp_default:
+    class: Drupal\sandcamp\Command\DefaultCommand
+    arguments: ['@entity_type.manager']
+    tags:
+      - { name: drupal.command }

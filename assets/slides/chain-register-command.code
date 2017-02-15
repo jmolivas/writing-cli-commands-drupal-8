@@ -1,0 +1,46 @@
+command:
+  name: build:develop
+  description: 'Build local development site'
+commands:
+# Install site
+  - command: site:install
+    options:
+      force: true
+      uri: 'http://default'
+    arguments:
+      profile: standard
+# Install development modules
+  - command: module:install
+    arguments:
+      module:
+        - features_ui
+# Add write permissions
+  - command: exec
+    arguments:
+      bin: chmod +w sites/default/
+  - command: exec
+    arguments:
+      bin: chmod +w sites/default/settings.php
+  - command: exec
+    arguments:
+      bin: chmod +w sites/default/settings.local.php
+# Feature import.
+  - command: features:import
+    arguments:
+      packages:
+          - feature_name
+# Create dummy data
+  - command: 'create:terms'
+    options:
+        limit: '25'
+        name-words: '3'
+  - command: 'create:nodes'
+    options:
+        limit: 50
+        title-words: 5
+        time-range: 2592000
+        language: und
+  # Cache clear just to make sure config import was done ok.
+  - command: 'cache:rebuild'
+    arguments:
+        cache: all

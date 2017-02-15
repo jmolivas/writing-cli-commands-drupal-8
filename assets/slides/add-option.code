@@ -1,0 +1,13 @@
+
+use Symfony\Component\Console\Input\InputOption;
+...
+protected function configure() {
+  ...
+    ->addOption(
+      'nid',
+      null,
+      InputOption::VALUE_OPTIONAL,
+      $this->trans('...')
+    )
+  ...
+}
