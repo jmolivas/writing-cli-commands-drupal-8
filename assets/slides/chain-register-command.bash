@@ -1,2 +1,2 @@
 
-drupal build:develop
+drupal create:data
